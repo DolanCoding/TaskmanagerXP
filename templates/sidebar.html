@@ -1,0 +1,17 @@
+<div class="sidebar-section sidebar-points-section">
+  <h2>Points by Category</h2>
+  <ul id="points-by-category-list">
+    {% for category in all_categories %}
+    <li class="sidebar-category-row sidebar-category-{{ category.name }}">
+      <span
+        class="sidebar-category-label sidebar-category-label-{{ category.name }}"
+        >{{ category.name.capitalize() }}</span
+      >:
+      <span
+        class="sidebar-category-points sidebar-category-points-{{ category.name }}"
+        >{{ points_by_category.get(category.name, 0) }}</span
+      >
+    </li>
+    {% endfor %}
+  </ul>
+</div>

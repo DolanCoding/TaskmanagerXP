@@ -1,0 +1,24 @@
+<div id="pinboard-placeholder">
+  {% for task in tasks %} {% include 'task_card.html' %} {% else %}
+  <li>Pinboard is empty!</li>
+  {% endfor %}
+  <div id="whiteboard-button-row">
+    <label for="rect-color-picker">Fill</label>
+    <input
+      type="color"
+      id="rect-color-picker"
+      class="whiteboard-color-picker"
+      value="#ffff00"
+      title="Pick rectangle fill color"
+    />
+    <label for="rect-outline-picker">Outline</label>
+    <input
+      type="color"
+      id="rect-outline-picker"
+      class="whiteboard-color-picker"
+      value="#000000"
+      title="Pick rectangle outline color"
+    />
+    <button class="whiteboard-btn" id="draw-rect-btn">Draw Rectangle</button>
+  </div>
+</div>

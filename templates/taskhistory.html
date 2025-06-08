@@ -1,0 +1,22 @@
+<ul class="task-history-list">
+  {% for task in task_history %}
+  <li class="task-history-row">
+    <div class="task-history-details">
+      <span class="task-history-name"> {{ task.name }} </span>
+      <span
+        class="task-history-category task-history-category-{{ task.category_obj.name|lower if task.category_obj else 'other' }}"
+        >{{ task.category_obj.name if task.category_obj else 'Other' }}</span
+      >
+    </div>
+    <div class="task-history-footer">
+      <span class="task-history-points">{{ task.points }} pts</span>
+      <span class="task-history-completed"
+        >Completed: {{ task.completed_at.strftime('%Y-%m-%d %H:%M') if
+        task.completed_at else '' }}</span
+      >
+    </div>
+  </li>
+  {% else %}
+  <li>No completed tasks yet!</li>
+  {% endfor %}
+</ul>

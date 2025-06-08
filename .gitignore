@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# VSCode settings
+.vscode/
+
+# Environment variables / secrets
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python virtual environments
+venv/
+ENV/
+
+# Migration cache
+migrations/versions/__pycache__/
+
+# Flask/Migrate/other logs
+*.log
+
+# Pytest cache
+.pytest_cache/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/

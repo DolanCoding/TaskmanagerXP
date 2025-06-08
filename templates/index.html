@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager XP</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <button
+      id="sidebar-toggle-btn"
+      aria-label="Toggle Sidebar"
+      style="display: none"
+    >
+      &#9776;
+    </button>
+    <div class="main-container">
+      <aside class="sidebar" id="sidebar">{% include 'sidebar.html' %}</aside>
+
+      <main class="content-area">
+        <h2
+          id="create-task-toggle"
+          data-toggle-section="create-task-section"
+          data-label="Create New Task"
+          style="cursor: pointer; user-select: none"
+        >
+          Create New Task
+        </h2>
+        <div id="create-task-section" style="display: none">
+          {% include 'create_task.html' %}
+        </div>
+
+        <h2
+          id="pinboard-toggle"
+          data-toggle-section="pinboard-section"
+          data-label="Pinboard"
+          style="cursor: pointer; user-select: none"
+        >
+          Pinboard
+        </h2>
+        <div id="pinboard-section">{% include 'pinboard.html' %}</div>
+
+        <h2
+          id="task-history-toggle"
+          data-toggle-section="task-history-section"
+          data-label="Task History"
+          style="cursor: pointer; user-select: none"
+        >
+          Task History
+        </h2>
+        <div id="task-history-section" style="display: none">
+          {% include 'taskhistory.html' %}
+        </div>
+      </main>
+    </div>
+
+    <!-- Removed old inline script, now handled by JS modules -->
+    <script
+      type="module"
+      src="{{ url_for('static', filename='JS/main.js') }}"
+    ></script>
+  </body>
+</html>

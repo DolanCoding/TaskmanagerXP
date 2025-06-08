@@ -1,0 +1,51 @@
+<!-- Task Card Template -->
+<div
+  class="task-card"
+  data-task-id="{{ task.id }}"
+  style="
+    left: {{ task.x or 0 }}px;
+    top: {{ task.y or 0 }}px;
+    position: absolute;
+    cursor: grab;
+  "
+>
+  <div class="task-card-header">
+    <span class="task-card-category"
+      >{{ task.category_obj.name if task.category_obj else '' }}</span
+    >
+    <span class="task-card-points">{{ task.points }} pts</span>
+  </div>
+  <div class="task-card-body">
+    <h3 class="task-card-title">{{ task.name }}</h3>
+    <div class="task-card-date">Due: {{ task.due_date }}</div>
+  </div>
+  <div class="task-card-desc">{{ task.description }}</div>
+  <div class="task-card-footer">
+    <span class="task-card-created"
+      >Created:{{task.created_at.strftime('%Y-%m-%d') if task.created_at else ''
+      }}</span
+    >
+    <form
+      action="/complete_task/{{ task.id }}"
+      method="post"
+      class="complete-task-form"
+    >
+      <button
+        type="submit"
+        class="complete-task-btn"
+        title="Complete Task and Earn Points"
+      >
+        Complete
+      </button>
+    </form>
+    <form
+      action="/delete_task/{{ task.id }}"
+      method="post"
+      class="delete-task-form"
+    >
+      <button type="submit" class="delete-task-btn" title="Delete Task">
+        X
+      </button>
+    </form>
+  </div>
+</div>

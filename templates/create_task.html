@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Task</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/tasks" method="post" class="task-form">
+        <div class="form-group">
+          <label for="task-name-input" class="label-task-name"
+            >Task name:</label
+          >
+          <input
+            id="task-name-input"
+            class="input-task-name"
+            type="text"
+            name="name"
+            placeholder="Enter new task name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="due-date-input" class="label-due-date">Due date:</label>
+          <input
+            id="due-date-input"
+            class="input-task-due-date"
+            type="date"
+            name="due_date"
+            placeholder="Enter due date"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="task-points-input" class="label-task-points"
+            >Points:</label
+          >
+          <input
+            id="task-points-input"
+            class="input-task-points"
+            type="number"
+            name="points"
+            placeholder="Enter task points"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="task-category-input" class="label-task-category"
+            >Category:</label
+          >
+          <select
+            id="task-category-input"
+            class="input-task-category"
+            name="category"
+            required
+          >
+            {% for category in all_categories %}
+              <option value="{{ category.name }}" {% if category.name == 'living' %}selected{% endif %}>{{ category.name.capitalize() }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="task-description-input" class="label-task-description"
+            >Description:</label
+          >
+          <textarea
+            id="task-description-input"
+            class="input-task-description"
+            name="description"
+            placeholder="Enter task description"
+            required
+            maxlength="125"
+            style="resize: none; min-height: 3.5rem"
+          ></textarea>
+        </div>
+        <button type="submit" class="task-submit-btn">Add Task</button>
+      </form>
+    </div>
+  </body>
+</html>
