@@ -31,6 +31,8 @@ body {
 /* --- Sidebar Styling --- */
 .sidebar {
   min-width: 320px;
+  height: 100px;
+  position:fixed;
   width: 15vw;
   background: #263445;
   color: #ecf0f1;
